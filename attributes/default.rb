@@ -60,8 +60,9 @@ default['postgresql']['server_host'] = "localhost"
 default['voisee']['database_user'] = "voisee"
 default['voisee']['database_password'] = "datapass"
 
-default['voisee']['env'] = "development"
+default['voisee']['env'] = "production"
 
+default['voisee']['webapp_path'] = "/home/voisee/voisee-webapp"
 
 # User
 default['voisee']['user'] = "voisee"
