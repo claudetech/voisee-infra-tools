@@ -32,6 +32,9 @@
     },
     "magic_shell": {
       "locked_version": "1.0.0"
+    },
+    "ruby_build": {
+      "locked_version": "0.8.0"
     }
   }
 }
