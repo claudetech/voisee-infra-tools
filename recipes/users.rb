@@ -7,10 +7,12 @@
 
 voisee = node['voisee']
 
+## Creates group Voisee
 group voisee['group'] do
   gid voisee['user_gid']
 end
 
+## Creates user Voisee
 user voisee['user'] do
   comment "voisee user"
   home voisee['home']
