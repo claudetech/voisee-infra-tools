@@ -1,0 +1,43 @@
+{
+  "sources": {
+    "voisee": {
+      "path": "."
+    },
+    "postgresql": {
+      "locked_version": "3.3.4"
+    },
+    "nginx": {
+      "locked_version": "2.2.2"
+    },
+    "apt": {
+      "locked_version": "2.3.4"
+    },
+    "yum": {
+      "locked_version": "3.0.6"
+    },
+    "magic_shell": {
+      "locked_version": "1.0.0"
+    },
+    "build-essential": {
+      "locked_version": "1.4.2"
+    },
+    "openssl": {
+      "locked_version": "1.1.0"
+    },
+    "bluepill": {
+      "locked_version": "2.3.1"
+    },
+    "rsyslog": {
+      "locked_version": "1.10.2"
+    },
+    "ohai": {
+      "locked_version": "1.1.12"
+    },
+    "runit": {
+      "locked_version": "1.5.8"
+    },
+    "yum-epel": {
+      "locked_version": "0.2.0"
+    }
+  }
+}
