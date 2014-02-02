@@ -62,6 +62,15 @@ default['voisee']['database_password'] = "datapass"
 
 default['voisee']['env'] = "development"
 
+
+# User
+default['voisee']['user'] = "voisee"
+default['voisee']['group'] = "voisee"
+default['voisee']['user_uid'] = nil
+default['voisee']['user_gid'] = nil
+default['voisee']['home'] = "/home/voisee"
+
+
 # Setup environments
 if node['voisee']['env'] == "development"
   default['voisee']['port'] = "3000"
