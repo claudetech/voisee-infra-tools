@@ -8,7 +8,7 @@ version '0.0.1'
 
 recipe "voisee::default", "Installation"
 
-%w{ postgresql yum magic_shell apt }.each do |dep|
+%w{ database postgresql yum magic_shell apt }.each do |dep|
   depends dep
 end
 
