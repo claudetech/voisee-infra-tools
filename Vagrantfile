@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
         'env' => 'development',
         'user_uid' => 1111,
         'user_gid' => 1111,
-        'deploy_key' => File.read(File.join(ENV['HOME'], ".ssh/id_rsa"))
+        'deploy_key' => File.read(File.join(ENV['HOME'], ".ssh/deploy_key"))
       }
     }
 

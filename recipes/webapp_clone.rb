@@ -5,22 +5,32 @@
 
 voisee = node['voisee']
 
-unless voisee['deploy_key'].empty?
-  template File.join(voisee['home'], ".ssh", "deploy-ssh-wrapper.sh") do
-    source "deploy-ssh-wrapper.erb"
-    user voisee['user']
-    group voisee['group']
-    mode 0755
-    variables({
-      path: File.join(voisee['home'], ".ssh")
-    })
-  end
+ssh_home = File.join(voisee['home'], ".ssh")
+ssh_paths = [ssh_home]
 
-  file File.join(voisee['home'], ".ssh", "id_deploy_key") do
-    mode 0600
-    content voisee['deploy_key']
-    user voisee['user']
-    group voisee['group']
+if voisee['env'] == 'development'
+  ssh_home = "/tmp"
+  ssh_paths << ssh_home
+end
+
+unless voisee['deploy_key'].empty?
+  ssh_paths.each do |path|
+    template File.join(path, "deploy-ssh-wrapper.sh") do
+      source "deploy-ssh-wrapper.erb"
+      user voisee['user']
+      group voisee['group']
+      mode 0755
+      variables({
+        path: File.join(path)
+        })
+    end
+
+    file File.join(path, "id_deploy_key") do
+      mode 0600
+      content voisee['deploy_key']
+      user voisee['user']
+      group voisee['group']
+    end
   end
 end
 
@@ -31,6 +41,14 @@ git "clone voisee source" do
   revision voisee['revision']
   user voisee['user']
   group voisee['group']
-  ssh_wrapper File.join(voisee['home'], ".ssh", "deploy-ssh-wrapper.sh") unless voisee['deploy_key'].empty?
+  ssh_wrapper File.join(ssh_home, "deploy-ssh-wrapper.sh") unless voisee['deploy_key'].empty?
   action :sync
+end
+
+if voisee['env'] == 'development' && !voisee['deploy_key'].empty?
+  %w{ deploy-ssh-wrapper.sh id_deploy_key }.each do |file|
+    file File.join(ssh_home, file) do
+      action :delete
+    end
+  end
 end
