@@ -3,7 +3,9 @@
 # Recipe:: deploy
 #
 
-if node['voisee']['env'] == 'development'
+voisee = node['voisee']
+
+if voisee['env'] == 'development'
   include_recipe "root_ssh_agent::env_keep"
 end
 

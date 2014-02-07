@@ -6,31 +6,23 @@
 voisee = node['voisee']
 
 ssh_home = File.join(voisee['home'], ".ssh")
-ssh_paths = [ssh_home]
-
-if voisee['env'] == 'development'
-  ssh_home = "/tmp"
-  ssh_paths << ssh_home
-end
 
 unless voisee['deploy_key'].empty?
-  ssh_paths.each do |path|
-    template File.join(path, "deploy-ssh-wrapper.sh") do
-      source "deploy-ssh-wrapper.erb"
-      user voisee['user']
-      group voisee['group']
-      mode 0755
-      variables({
-        path: File.join(path)
-      })
-    end
+  template File.join(ssh_home, "deploy-ssh-wrapper.sh") do
+    source "deploy-ssh-wrapper.erb"
+    user voisee['user']
+    group voisee['group']
+    mode 0755
+    variables({
+      path: File.join(ssh_home)
+    })
+  end
 
-    file File.join(path, "id_deploy_key") do
-      mode 0600
-      content voisee['deploy_key']
-      user voisee['user']
-      group voisee['group']
-    end
+  file File.join(ssh_home, "id_deploy_key") do
+    mode 0600
+    content voisee['deploy_key']
+    user voisee['user']
+    group voisee['group']
   end
 end
 
@@ -44,12 +36,4 @@ git "clone voisee source" do
   ssh_wrapper File.join(ssh_home, "deploy-ssh-wrapper.sh") unless voisee['deploy_key'].empty?
   only_if "chmod -R 777 #{File.expand_path('../', ENV['SSH_AUTH_SOCK'])}" if voisee['env'] == 'development'
   action :sync
-end
-
-if voisee['env'] == 'development' && !voisee['deploy_key'].empty?
-  %w{ deploy-ssh-wrapper.sh id_deploy_key }.each do |file|
-    file File.join(ssh_home, file) do
-      action :delete
-    end
-  end
 end

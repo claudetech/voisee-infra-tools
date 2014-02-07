@@ -8,6 +8,6 @@ voisee = node['voisee']
 directory File.join(voisee['home'], '.ssh') do
   owner voisee['user']
   group voisee['group']
-  mode 00600
+  mode 00755
   action :create
 end

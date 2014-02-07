@@ -62,14 +62,16 @@ default['voisee']['database_password'] = "datapass"
 
 default['voisee']['env'] = "production"
 
-default['voisee']['webapp_path'] = "/home/voisee/voisee-webapp"
-
 # User
 default['voisee']['user'] = "voisee"
 default['voisee']['group'] = "voisee"
 default['voisee']['user_uid'] = nil
 default['voisee']['user_gid'] = nil
 default['voisee']['home'] = "/home/voisee"
+default['voisee']['data_home'] = "#{default['voisee']['home']}/data"
+
+
+default['voisee']['webapp_path'] = "#{default['voisee']['data_home']}/voisee-webapp"
 
 
 # Setup environments
