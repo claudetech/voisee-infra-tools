@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
       }
     }
 
-    config.trigger.before :provision, execute: "./fix_git_clone #{DATA_DIR}", stdout: true
+    config.trigger.after :provision, execute: "./fix_git_clone.sh #{DATA_DIR}", stdout: false
 
     chef.arguments = '-l debug'
   end
