@@ -73,6 +73,8 @@ default['voisee']['data_home'] = "#{default['voisee']['home']}/data"
 
 default['voisee']['webapp_path'] = "#{default['voisee']['data_home']}/voisee-webapp"
 
+default['voisee']['bundle_install'] = "SSL_CERT_FILE=/opt/local/etc/certs/cacert.pem bundle install --path=.bundle --deployment"
+
 
 # Setup environments
 if node['voisee']['env'] == "development"
