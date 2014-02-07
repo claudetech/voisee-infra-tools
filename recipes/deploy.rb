@@ -15,3 +15,6 @@ include_recipe "voisee::webapp_clone"
 
 # Install gems
 include_recipe "voisee::gems"
+
+# Install app
+include_recipe "voisee::install"

@@ -70,10 +70,15 @@ default['voisee']['user_gid'] = nil
 default['voisee']['home'] = "/home/voisee"
 default['voisee']['data_home'] = "#{default['voisee']['home']}/data"
 
+default['voisee']['devise_secret'] = 'foobar'
 
 default['voisee']['webapp_path'] = "#{default['voisee']['data_home']}/voisee-webapp"
 
 default['voisee']['bundle_install'] = "SSL_CERT_FILE=/opt/local/etc/certs/cacert.pem bundle install --path=.bundle --deployment"
+
+# Facebook
+default['voisee']['facebook_id'] = 'facebook_id'
+default['voisee']['facebook_secret'] = 'facebook_secret'
 
 
 # Setup environments
