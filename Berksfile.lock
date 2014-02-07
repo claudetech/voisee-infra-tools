@@ -3,6 +3,11 @@
     "voisee": {
       "path": "."
     },
+    "root_ssh_agent": {
+      "locked_version": "0.1.0",
+      "git": "https://github.com/dergachev/chef_root_ssh_agent.git",
+      "ref": "25a316bed58adb3f4951a0f20ad3dfc3bc2af3df"
+    },
     "database": {
       "locked_version": "1.6.0"
     },
@@ -28,7 +33,7 @@
       "locked_version": "1.1.0"
     },
     "yum": {
-      "locked_version": "3.0.6"
+      "locked_version": "2.4.2"
     },
     "magic_shell": {
       "locked_version": "1.0.0"
