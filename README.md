@@ -8,7 +8,6 @@ Necessary recipes to install and configure Voisee webapp.
 ### Prerequisites
 
 * Virtualbox
-* Guest Additions ISO available (if it is not at the default path, uncomment and adapt the `vbguest.iso_path` line in the `Vagrantfile`)
 * Vagrant (with the `vagrant` command available in the path)
 * NFS if working on OS X or Linux (installed by default on OS X)
 * A working `ruby` with the `gem` command in the path
