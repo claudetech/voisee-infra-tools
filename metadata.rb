@@ -8,7 +8,7 @@ version '0.0.1'
 
 recipe "voisee::default", "Installation"
 
-%w{ database postgresql yum magic_shell apt ruby_build }.each do |dep|
+%w{ database postgresql yum magic_shell apt ruby_build locale }.each do |dep|
   depends dep
 end
 

@@ -29,6 +29,8 @@ voisee['environments'].each do |environment|
   postgresql_database "voisee_database" do
     database_name "voisee_#{environment}"
     connection postgresql_connection
+    encoding postgresql['encoding']
+    owner voisee['database_user'] if voisee['env'] != 'production'
     action :create
   end
 

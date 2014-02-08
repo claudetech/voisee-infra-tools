@@ -8,6 +8,11 @@
       "git": "https://github.com/dergachev/chef_root_ssh_agent.git",
       "ref": "25a316bed58adb3f4951a0f20ad3dfc3bc2af3df"
     },
+    "locale": {
+      "locked_version": "1.0.0",
+      "git": "https://github.com/hw-cookbooks/locale.git",
+      "ref": "297c012e5468d9c39c292791b6c22b38271a17c7"
+    },
     "database": {
       "locked_version": "1.6.0"
     },

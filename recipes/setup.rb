@@ -3,6 +3,9 @@
 # Recipe:: setup
 #
 
+# Set locale
+include_recipe "locale::default"
+
 # Base packages
 include_recipe "voisee::packages"
 

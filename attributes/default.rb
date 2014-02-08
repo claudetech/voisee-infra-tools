@@ -14,7 +14,6 @@ if platform_family?("rhel")
     openssl-devel
     pcre-devel
     git
-    mysql-devel
     gcc-c++
     ImageMagick-devel
     ImageMagick
@@ -56,6 +55,7 @@ default['voisee']['deploy_key'] = ''
 
 default['postgresql']['password']['postgres'] = "psqlpass"
 default['postgresql']['server_host'] = "localhost"
+default['postgresql']['encoding'] = "UTF-8"
 
 default['voisee']['database_user'] = "voisee"
 default['voisee']['database_password'] = "datapass"
