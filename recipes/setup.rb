@@ -18,7 +18,7 @@ include_recipe "voisee::ruby"
 include_recipe "voisee::users"
 
 # Create .ssh directory for user
-include_recipe "voisee::ssh_dir"
+include_recipe "voisee::home_dirs"
 
 # Setup database
 include_recipe "voisee::postgresql_db"

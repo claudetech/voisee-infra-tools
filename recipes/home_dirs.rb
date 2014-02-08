@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: voisee
-# Recipe:: ssh_dir
+# Recipe:: home_dir
 #
 
 voisee = node['voisee']

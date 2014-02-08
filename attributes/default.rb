@@ -74,7 +74,12 @@ default['voisee']['devise_secret'] = 'foobar'
 
 default['voisee']['webapp_path'] = "#{default['voisee']['data_home']}/voisee-webapp"
 
-default['voisee']['bundle_install'] = "SSL_CERT_FILE=/opt/local/etc/certs/cacert.pem bundle install --path=.bundle --deployment"
+default['voisee']['bundle_install'] = "SSL_CERT_FILE=/opt/local/etc/certs/cacert.pem bundle install"
+if voisee['env'] == 'production'
+  default['voisee']['bundle_install'] <<= " --path=.bundle --deployment"
+else
+  default['voisee']['bundle_install'] <<= " --path=#{default['voisee']['home']}/.bundle"
+end
 
 # Facebook
 default['voisee']['facebook_id'] = 'facebook_id'

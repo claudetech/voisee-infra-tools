@@ -1,9 +1,16 @@
+require 'fileutils'
+
 MEMORY = ENV['VOISEE_VAGRANT_MEMORY'] || '1536'
 CORES = ENV['VOISEE_VAGRANT_CORES'] || '2'
 
 SSH_KEY = ENV['VOISEE_SSH_KEY'] || File.join(ENV['HOME'], ".ssh/id_rsa")
 
 DATA_DIR = ENV['VOISEE_DATA_DIR'] || "../voisee_data"
+
+if Dir["#{DATA_DIR}/{*,.keep}"].empty?
+  FileUtils.mkpath(DATA_DIR)
+  FileUtils.touch(File.join(DATA_DIR, ".keep"))
+end
 
 Vagrant.configure("2") do |config|
   config.vm.hostname = "voisee-dev"
@@ -41,7 +48,6 @@ Vagrant.configure("2") do |config|
       }
     }
 
-    config.trigger.before :up, execute: "mkdir -p #{DATA_DIR}"
     config.trigger.after :provision, execute: "./fix_git_clone.sh #{DATA_DIR}", stdout: false
 
     chef.arguments = '-l debug'
