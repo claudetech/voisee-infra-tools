@@ -1,6 +1,7 @@
-# voisee-cookbook
+# voisee-infra-tools
 
 Necessary recipes to install and configure Voisee webapp.
+Also contains a Vagrantfile for development.
 
 ## Development installation
 
@@ -17,7 +18,7 @@ You must not be ask a password when cloning the repository through SSH. Your pri
 
 ```
 gem install berkshelf
-git clone git@github.com:voisee/voisee-dev-tools.git
+git clone git@github.com:voisee/voisee-infra-tools.git
 cd voise-dev-tools
 ./install-vagrant-plugins.sh
 vagrant up
@@ -49,6 +50,8 @@ bundle exec foreman start
 ```
 
 You can now visit [http://localhost:3000](http://localhost:3000) and you should see the top page.
+
+You can then edit the files in the webapp data folder normally and it will be synced with the box.
 
 
 [virtualbox-download]: https://www.virtualbox.org/wiki/Downloads
