@@ -20,10 +20,13 @@ gem install berkshelf
 git clone git@github.com:voisee/voisee-dev-tools.git
 cd voise-dev-tools
 ./install-vagrant-plugins.sh
-vagrant up --provision
+vagrant up
+vagrant provision
 ```
 
-The first time, this will probably take a **looong** time, so grab a coffee, take a shower, or whatever.
+Please **DO NOT** use `vagrant up --provision` instead for now.
+
+The first time, `vagrant provision` will take a **looong** time, so grab a coffee or go and take a shower.
 
 If you get any error during the above process, please [check the current issues or open a new one][tools-issues].
 
