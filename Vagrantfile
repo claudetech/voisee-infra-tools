@@ -47,9 +47,10 @@ Vagrant.configure("2") do |config|
         'deploy_key' => File.read(SSH_KEY)
       }
     }
-
-    config.trigger.after :provision, execute: "./fix_git_clone.sh #{DATA_DIR}", stdout: false
-
     chef.arguments = '-l debug'
   end
+
+  config.trigger.after :provision, execute: "./fix_git_clone.sh #{DATA_DIR}", stdout: false
+
+  config.vm.provision :shell, path: "./voisee_login.sh"
 end

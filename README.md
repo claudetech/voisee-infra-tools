@@ -2,17 +2,16 @@
 
 Necessary recipes to install and configure Voisee webapp.
 
-
 ## Development installation
 
 ### Prerequisites
 
-* Virtualbox
-* Vagrant (with the `vagrant` command available in the path)
+* [Virtualbox][virtualbox-download]
+* [Vagrant][vagrant-download]
 * NFS if working on OS X or Linux (installed by default on OS X)
 * A working `ruby` with the `gem` command in the path
 
-You must not be ask a password when cloning the repository through SSH. Your private key should not have a password or your `ssh-agent` should be configured. If not, the installation will fail afterwards.
+You must not be ask a password when cloning the repository through SSH. Your private key should not have a password or your `ssh-agent` should be configured. If not, cloning the webapp will fail during the box provisionning.
 
 ### Installation
 
@@ -30,6 +29,8 @@ If you get any error during the above process, please [check the current issues 
 
 ### Usage
 
+**Important** The data folder where will be placed the webapp git repository is by default at `../voisee_data`. You can change it in the Vagrantfile or by setting the `DATA_DIR` environment variable.
+
 If your box is not started, you will need to start it with
 
 ```
@@ -41,8 +42,12 @@ Then, enter the box and launch the application.
 ```
 vagrant ssh
 cd data/voisee-webapp
-foreman start
+bundle exec foreman start
 ```
 
+You can now visit [http://localhost:3000](http://localhost:3000) and you should see the top page.
 
+
+[virtualbox-download]: https://www.virtualbox.org/wiki/Downloads
+[vagrant-download]: https://www.vagrantup.com/downloads.html
 [tools-issues]: https://github.com/voisee/voisee-dev-tools/issues
