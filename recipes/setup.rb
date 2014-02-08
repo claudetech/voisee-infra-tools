@@ -3,6 +3,8 @@
 # Recipe:: setup
 #
 
+voisee = node['voisee']
+
 # Set locale
 include_recipe "locale::default"
 
@@ -20,3 +22,8 @@ include_recipe "voisee::ssh_dir"
 
 # Setup database
 include_recipe "voisee::postgresql_db"
+
+# PhantomJS
+unless voisee['env'] == 'production'
+  include_recipe "phantomjs"
+end
