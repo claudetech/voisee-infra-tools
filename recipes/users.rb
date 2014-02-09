@@ -22,6 +22,14 @@ user voisee['user'] do
   supports manage_home: true
 end
 
+directory voisee['home'] do
+  owner voisee['user']
+  group voisee['group']
+  recursive true
+  mode 0755
+end
+
+
 user voisee['user'] do
   action :lock
 end
