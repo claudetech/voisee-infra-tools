@@ -8,6 +8,9 @@ voisee = node['voisee']
 # Set locale
 include_recipe "locale::default"
 
+# Set timezone
+include_recipe "timezone-ii::default"
+
 # Base packages
 include_recipe "voisee::packages"
 

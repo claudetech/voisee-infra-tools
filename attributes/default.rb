@@ -58,6 +58,8 @@ default['postgresql']['server_host'] = "localhost"
 default['postgresql']['encoding'] = "UTF-8"
 default['postgresql']['initdb_options'] = "-E '#{default['postgresql']['encoding']}'"
 
+default['tz'] = 'Asia/Tokyo'
+
 default['voisee']['database_user'] = "voisee"
 default['voisee']['database_password'] = "datapass"
 
