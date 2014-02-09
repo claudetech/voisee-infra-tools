@@ -64,7 +64,7 @@ voisee['environments'].each do |environment|
     user voisee['user']
     group voisee['group']
     action :nothing
-    subscribes :run, "execute[rake db:setup]"
+    subscribes :run, "execute[rake db:setup #{environment}]"
     subscribes :run, "git[clone voisee source]"
   end
 end
