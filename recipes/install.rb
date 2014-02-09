@@ -51,7 +51,7 @@ voisee['environments'].each do |environment|
     user voisee['user']
     group voisee['group']
     action :nothing
-    subscribes :run, "postgresql_database[voisee_database]"
+    subscribes :run, "pg_database[voisee_#{environment}]"
   end
 
   ### db:migrate

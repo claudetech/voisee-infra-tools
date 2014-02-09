@@ -13,29 +13,10 @@
       "git": "https://github.com/hw-cookbooks/locale.git",
       "ref": "297c012e5468d9c39c292791b6c22b38271a17c7"
     },
-    "database": {
-      "locked_version": "1.6.0"
-    },
-    "mysql": {
-      "locked_version": "4.0.20"
-    },
-    "openssl": {
-      "locked_version": "1.1.0"
-    },
-    "build-essential": {
-      "locked_version": "1.4.2"
-    },
     "postgresql": {
-      "locked_version": "3.3.4"
-    },
-    "apt": {
-      "locked_version": "2.3.4"
-    },
-    "aws": {
-      "locked_version": "1.0.0"
-    },
-    "xfs": {
-      "locked_version": "1.1.0"
+      "locked_version": "0.13.1",
+      "git": "https://github.com/phlipper/chef-postgresql.git",
+      "ref": "517e5331ddaa08aabf81deed64d0387b1f5c7a31"
     },
     "yum": {
       "locked_version": "3.0.6"
@@ -43,11 +24,17 @@
     "magic_shell": {
       "locked_version": "1.0.0"
     },
+    "apt": {
+      "locked_version": "2.3.4"
+    },
     "ruby_build": {
       "locked_version": "0.8.0"
     },
     "phantomjs": {
       "locked_version": "1.0.3"
+    },
+    "build-essential": {
+      "locked_version": "1.4.2"
     },
     "chocolatey": {
       "locked_version": "0.0.5"

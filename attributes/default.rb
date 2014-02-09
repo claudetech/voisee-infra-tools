@@ -56,6 +56,7 @@ default['voisee']['deploy_key'] = ''
 default['postgresql']['password']['postgres'] = "psqlpass"
 default['postgresql']['server_host'] = "localhost"
 default['postgresql']['encoding'] = "UTF-8"
+default['postgresql']['initdb_options'] = "-E '#{default['postgresql']['encoding']}'"
 
 default['voisee']['database_user'] = "voisee"
 default['voisee']['database_password'] = "datapass"
