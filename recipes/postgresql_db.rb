@@ -8,6 +8,7 @@ voisee = node['voisee']
 
 # Install postgresql
 include_recipe "postgresql::server"
+include_recipe "postgresql::server_dev"
 
 ## Create a user for Voisee.
 pg_user voisee['database_user'] do
