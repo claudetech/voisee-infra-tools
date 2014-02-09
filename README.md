@@ -25,6 +25,10 @@ vagrant up
 vagrant provision
 ```
 
+If you have error, please try the following command!(by sone)
+```
+sudo nfsd checkexports
+```
 Please **DO NOT** use `vagrant up --provision` instead for now.
 
 The first time, `vagrant provision` will take a **looong** time, so grab a coffee or go and take a shower.
