@@ -16,19 +16,36 @@ You must not be ask a password when cloning the repository through SSH. Your pri
 
 ### Installation
 
+#### Automatic
+
+Just run the following command, and... wait.
+
+```
+curl -L http://goo.gl/FSXnn5 | sh
+```
+
+You will be prompted your `root` password when starting the installation. 
+The root privileges are only used to mount NFS, nothing else.
+
+Everything will be installed in a `voisee` directory, created in your current directory. 
+
+#### Manual
+
 ```
 gem install berkshelf
 git clone git@github.com:voisee/voisee-infra-tools.git
-cd voise-dev-tools
-./install-vagrant-plugins.sh
+cd voise-infra-tools
+bash install-vagrant-plugins.sh
 vagrant up
 vagrant provision
 ```
 
-If you have error, please try the following command!(by sone)
+On OS X, if there is an error, involving NFS, please try the following command.
+
 ```
 sudo nfsd checkexports
 ```
+
 Please **DO NOT** use `vagrant up --provision` instead for now.
 
 The first time, `vagrant provision` will take a **looong** time, so grab a coffee or go and take a shower.
@@ -48,6 +65,7 @@ vagrant up
 Then, enter the box and launch the application.
 
 ```
+cd /path/to/voisee-infra-tools
 vagrant ssh
 cd data/voisee-webapp
 bundle exec foreman start
@@ -56,6 +74,13 @@ bundle exec foreman start
 You can now visit [http://localhost:3000](http://localhost:3000) and you should see the top page.
 
 You can then edit the files in the webapp data folder normally and it will be synced with the box.
+
+When you are done, run the following command to stop the box.
+
+```
+cd /path/to/voisee-infra-tools
+vagrant halt
+```
 
 
 [virtualbox-download]: https://www.virtualbox.org/wiki/Downloads
