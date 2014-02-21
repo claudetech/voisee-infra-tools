@@ -14,6 +14,9 @@ include_recipe "timezone-ii::default"
 # Base packages
 include_recipe "voisee::packages"
 
+# Redis
+include_recipe "voisee::redis"
+
 # Custom ruby install
 include_recipe "voisee::ruby"
 

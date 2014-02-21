@@ -8,7 +8,9 @@ version '0.0.1'
 
 recipe "voisee::default", "Installation"
 
-%w{ yum magic_shell apt ruby_build locale phantomjs postgresql timezone-ii }.each do |dep|
+%w{ yum magic_shell apt ruby_build
+    locale phantomjs postgresql
+    timezone-ii redisio }.each do |dep|
   depends dep
 end
 

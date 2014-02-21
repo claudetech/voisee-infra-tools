@@ -50,6 +50,12 @@
     },
     "timezone-ii": {
       "locked_version": "0.2.0"
+    },
+    "redisio": {
+      "locked_version": "1.7.0"
+    },
+    "ulimit": {
+      "locked_version": "0.3.2"
     }
   }
 }
