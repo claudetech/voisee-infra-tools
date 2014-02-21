@@ -13,6 +13,8 @@ include_recipe "postgresql::server_dev"
 ## Create a user for Voisee.
 pg_user voisee['database_user'] do
   password voisee['database_password']
+  # allow rake db:reset in development
+  privileges createdb: voisee['env'] == "development"
 end
 
 ## Create the Voisee database & grant all privileges on database
