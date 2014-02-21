@@ -25,6 +25,15 @@ Vagrant.configure("2") do |config|
 
   # config.vbguest.iso_path = "#{ENV['HOME']}/Downloads/VBoxGuestAdditions.iso"
 
+  config.vm.provider :virtualbox do |v|
+    v.customize ["modifyvm", :id, "--memory", MEMORY.to_i]
+    v.customize ["modifyvm", :id, "--cpus", CORES.to_i]
+
+    if CORES.to_i > 1
+      v.customize ["modifyvm", :id, "--ioapic", "on"]
+    end
+  end
+
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder DATA_DIR, "/voisee-nfs", nfs: true
   config.bindfs.bind_folder "/voisee-nfs", "/home/voisee/data", owner: "1111", group: "1111", :'create-as-user' => true, :perms => "u=rwx:g=rx:o=rx", :'create-with-perms' => "u=rwx:g=rx:o=rx", :'chown-ignore' => true, :'chgrp-ignore' => true, :'chmod-normal' => true
