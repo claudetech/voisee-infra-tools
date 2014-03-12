@@ -40,7 +40,7 @@
       "locked_version": "0.0.5"
     },
     "powershell": {
-      "locked_version": "2.0.0"
+      "locked_version": "3.0.0"
     },
     "windows": {
       "locked_version": "1.12.8"
@@ -48,11 +48,20 @@
     "chef_handler": {
       "locked_version": "1.1.4"
     },
+    "ms_dotnet45": {
+      "locked_version": "1.1.2"
+    },
+    "ms_dotnet4": {
+      "locked_version": "1.0.2"
+    },
+    "ms_dotnet2": {
+      "locked_version": "1.0.0"
+    },
     "timezone-ii": {
       "locked_version": "0.2.0"
     },
     "redisio": {
-      "locked_version": "1.7.0"
+      "locked_version": "1.7.1"
     },
     "ulimit": {
       "locked_version": "0.3.2"

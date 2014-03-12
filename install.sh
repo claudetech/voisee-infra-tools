@@ -13,22 +13,24 @@ REPOSITORY_URL="$REPOSITORY_BASE$REPOSITORY_NAME.git"
 
 BASE_DIRECTORY="voisee"
 
-checknfsd() {
-  if which nfsd > /dev/null 2>&1; then
-    sudo nfsd checkexports
-  else
-    0
-  fi
-}
+# check environment
 
-sudo -v
-checknfsd
+for cmd in "vboxmanage" "vagrant" "git" "gem"; do
+  if ! eval "which $cmd > /dev/null"; then
+    echo "'$cmd' command not found."; exit 1
+  fi
+done
+
+if which nfsd > /dev/null 2>&1; then
+  sudo nfsd checkexports
+fi
+
+# Clone and install
 
 mkdir "$BASE_DIRECTORY" && cd "$BASE_DIRECTORY"
 $GIT clone "$REPOSITORY_URL" && cd "$REPOSITORY_NAME"
 
-$GEM install berkshelf
-$BASH install-vagrant-plugins.sh
+$BASH install-dependencies.sh
 
 $VAGRANT up
 $VAGRANT provision

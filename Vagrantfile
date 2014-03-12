@@ -59,7 +59,9 @@ Vagrant.configure("2") do |config|
     chef.arguments = '-l debug'
   end
 
-  config.trigger.after :provision, execute: "./fix_git_clone.sh #{DATA_DIR}", stdout: false
+  [:up, :provision].each do |evt|
+    config.trigger.after evt, execute: "./fix_git_clone.sh #{DATA_DIR}", stdout: false
+  end
 
   config.vm.provision :shell, path: "./voisee_login.sh"
 end
