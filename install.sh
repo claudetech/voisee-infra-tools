@@ -18,6 +18,10 @@ BASE_DIRECTORY="voisee"
 for cmd in "vboxmanage" "vagrant" "git" "gem"; do
   if ! eval "which $cmd > /dev/null"; then
     echo "'$cmd' command not found."; exit 1
+  else
+    cmd_version=$(eval "$cmd --version")
+    cmd_location=$(eval "which $cmd")
+    echo "Using $cmd $cmd_version at $cmd_location"
   fi
 done
 
