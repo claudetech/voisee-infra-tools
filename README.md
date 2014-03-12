@@ -21,7 +21,7 @@ You must not be ask a password when cloning the repository through SSH. Your pri
 Just run the following command, and... wait.
 
 ```
-curl -L http://goo.gl/FSXnn5 | sh
+curl -L http://goo.gl/Y0wQiQ | sh
 ```
 
 You will be prompted your `root` password when starting the installation. 
@@ -45,8 +45,6 @@ On OS X, if there is an error, involving NFS, please try the following command.
 ```
 sudo nfsd checkexports
 ```
-
-Please **DO NOT** use `vagrant up --provision` instead for now.
 
 The first time, `vagrant provision` will take a **looong** time, so grab a coffee or go and take a shower.
 
