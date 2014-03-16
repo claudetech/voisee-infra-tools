@@ -17,6 +17,7 @@ if platform_family?("rhel")
     gcc-c++
     ImageMagick-devel
     ImageMagick
+    zsh
   }
 else
   packages = %w{
@@ -27,6 +28,7 @@ else
     libgdbm-dev
     libreadline-dev
     libncurses5-dev
+    imagemagick
     libffi-dev
     curl
     git
@@ -42,6 +44,7 @@ else
     curl
     wget
     checkinstall
+    zsh
   }
 end
 
@@ -68,6 +71,11 @@ default['voisee']['env'] = "production"
 # User
 default['voisee']['user'] = "voisee"
 default['voisee']['group'] = "voisee"
+if default['voisee']['env'] == "production"
+  default['voise']['shell'] = '/bin/bash'
+else
+  default['voise']['shell'] = '/bin/zsh'
+end
 default['voisee']['user_uid'] = nil
 default['voisee']['user_gid'] = nil
 default['voisee']['home'] = "/home/voisee"

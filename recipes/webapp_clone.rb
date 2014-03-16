@@ -16,6 +16,7 @@ unless voisee['deploy_key'].empty?
     variables({
       path: File.join(ssh_home)
     })
+    action :create_if_missing
   end
 
   file File.join(ssh_home, "id_deploy_key") do
@@ -23,6 +24,7 @@ unless voisee['deploy_key'].empty?
     content voisee['deploy_key']
     user voisee['user']
     group voisee['group']
+    action :create_if_missing
   end
 end
 
@@ -35,5 +37,6 @@ git "clone voisee source" do
   group voisee['group']
   ssh_wrapper File.join(ssh_home, "deploy-ssh-wrapper.sh") unless voisee['deploy_key'].empty?
   only_if "chmod -R 777 #{File.expand_path('../', ENV['SSH_AUTH_SOCK'])}" if voisee['env'] == 'development'
+  not_if { File.exists?(voisee['webapp_path']) }
   action :sync
 end

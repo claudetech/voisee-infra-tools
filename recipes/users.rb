@@ -16,7 +16,7 @@ end
 user voisee['user'] do
   comment "voisee user"
   home voisee['home']
-  shell "/bin/bash"
+  shell voisee['shell']
   uid voisee['user_uid']
   gid voisee['group']
   supports manage_home: true
