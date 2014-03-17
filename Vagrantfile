@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
   config.vm.network :private_network, ip: "192.168.3.4"
 
   config.vm.network :forwarded_port, guest: 3000, host: 3000
-  config.vm.network :forwarded_port, guest: 80, host: 8080
+  config.vm.network :forwarded_port, guest: 80, host: 8000
   config.vm.network :forwarded_port, guest: 35729, host: 35729
 
   # config.vbguest.iso_path = "#{ENV['HOME']}/Downloads/VBoxGuestAdditions.iso"
