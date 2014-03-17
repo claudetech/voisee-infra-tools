@@ -10,7 +10,7 @@ else
   gem install berkshelf
 fi
 
-for plugin in "vagrant-omnibus" "vagrant-bindfs" "vagrant-berkshelf" "vagrant-vbguest" "vagrant-triggers"; do
+for plugin in "vagrant-omnibus" "vagrant-bindfs" "vagrant-vbguest" "vagrant-triggers"; do
   if eval "vagrant plugin list | grep $plugin > /dev/null"; then
     echo "$plugin already installed, skipping."
   else

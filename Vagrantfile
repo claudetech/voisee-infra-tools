@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
 
   config.omnibus.chef_version = "11.4.4"
 
-  config.berkshelf.enabled = true
+  # config.berkshelf.enabled = true
 
   config.ssh.forward_agent = true
 
